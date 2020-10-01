@@ -8,4 +8,3 @@ class Consultor:
     def corr(self, ma, mb):
         cor = ma * mb
         return cor
-
