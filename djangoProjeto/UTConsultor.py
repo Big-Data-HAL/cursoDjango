@@ -13,7 +13,7 @@ dfMat = pd.DataFrame(mat1)
 
 print(dfMat)
 
-print(cons.corr(5,4))
+print(cons.corr(6,7))
 corr = dfMat.corr()
 print(corr)
 
