@@ -9,7 +9,7 @@ class LivroForm(ModelForm):
         model = Livro
         fields = ['autor', 'editora', 'isbn', 'numeroPaginas', 'titulo', 'anoPublicacao', 'emailEditora']
 
-def livro_list(request, template_name= 'livro_list.html'):
-    livro = Livro.objects.all
-    livros = {'lista:', livro}
+def livro_list(request, template_name='livro_list.html'):
+    livro = Livro.objects.all()
+    livros = {'lista': livro}
     return render(request, template_name, livros)
