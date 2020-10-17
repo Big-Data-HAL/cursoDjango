@@ -1,4 +1,4 @@
-{% extends 'base.html'}
+{% extends 'base.html' %}
 
 {% block title %}
 Listagem de Livros
@@ -38,7 +38,7 @@ Listagem de Livros
     {% endfor %}
     </tbody>
 </table>
-<a href="#">
+<a href="{% url 'livro_new' %}">
 <button type="submit" class="btn btn-primary">
     Cadastrar
 </button>
