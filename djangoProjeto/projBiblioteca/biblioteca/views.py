@@ -16,7 +16,6 @@ def livro_list(request, template_name='livro_list.html'):
 
 def livro_new(request, template_name='livro_form.html'):
     form = LivroForm(request.POST or None)
-
     if form.valid():
         form.save()
         return redirect('listar_livros')

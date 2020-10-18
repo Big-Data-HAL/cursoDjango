@@ -8,12 +8,14 @@ Cadastro de Livros
 Cadastro de Livros
 {% endblock tituloPagina %}
 
-{% content %}
+{% block content %}
 
 <form method="post">
         {% csfr_token %}
-    {{ form.as_p }}
+    {{form.as_p}}
     <button type="submit" class="btn btn-primary">
         Salvar
     </button>
 </form>
+
+{% endblock content %}
