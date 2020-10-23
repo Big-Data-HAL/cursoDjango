@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Listagem de Livros
+Listagem de livros
 {% endblock title %}
 
 {% block tituloPagina %}
@@ -10,24 +10,24 @@ Listagem de Livros
 
 {% block content %}
 <table class="table">
-    <thead>
+    <tread>
         <tr>
-            <th>Autor</th>
-            <th>Titulo</th>
-            <th>Ano</th>
-            <th>Editora</th>
-            <th>Ação</th>
+          <th>Autor</th>
+          <th>Titulo</th>
+          <th>Ano</th>
+            <th>ISBN</th>
+          <th>Ação</th>
         </tr>
-    </thead>
+    </tread>
     <tbody>
-    {% for livro in lista %}
+        {% for livro in lista %}
         <tr>
-            <td>{{ Livro.autor }}</td>
-            <td>{{ Livro.titulo }}</td>
-            <td>{{ Livro.anoPublicacao }}</td>
-            <td>{{ Livro.editora }}</td>
+            <td>{{livro.autor}}</td>
+            <td>{{livro.titulo}}</td>
+            <td>{{livro.anoPublicacao}}</td>
+            <td>{{livro.isbn}}</td>
             <td>
-               <a href="{% url 'livro_edit' pk=livro.pk %}">
+                <a href="{% url 'livro_edit' pk=livro.pk %}">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a>
                 <a href="{% url 'livro_remove' pk=livro.pk %}">
@@ -35,7 +35,7 @@ Listagem de Livros
                 </a>
             </td>
         </tr>
-    {% endfor %}
+        {% endfor %}
     </tbody>
 </table>
 <a href="{% url 'livro_new' %}">
@@ -43,4 +43,5 @@ Listagem de Livros
     Cadastrar
 </button>
 </a>
+
 {% endblock content %}
