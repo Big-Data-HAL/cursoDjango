@@ -1,9 +1,17 @@
 from django.forms import ModelForm
 from .models import *
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
+import datetime
 
 
 # Create your views here.
+
+def home(request):
+    now = datetime.datetime.now()
+    #html = "<html><body>It is now %s.</body></html>" %now
+    #return HttpResponse(html)
+    return render(request, 'home.html')
 
 class LivroForm(ModelForm):
     class Meta:
