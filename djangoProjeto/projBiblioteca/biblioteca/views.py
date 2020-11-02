@@ -7,11 +7,11 @@ import datetime
 
 # Create your views here.
 
-def home(request):
-    now = datetime.datetime.now()
+def home(request, template_name='home_.html'):
+    vnow = datetime.datetime.now()
     #html = "<html><body>It is now %s.</body></html>" %now
     #return HttpResponse(html)
-    return render(request, 'home.html')
+    return render(request, template_name,{'vnow': vnow})
 
 class LivroForm(ModelForm):
     class Meta:
@@ -26,7 +26,7 @@ class LivroForm(ModelForm):
 def livro_list(request, template_name='livro_list.html'):
     livro = Livro.objects.all()
     livros = {'lista': livro}
-    return render(request, template_name, livros)
+    return render(request, template_name, livro)
 
 def livro_new(request, template_name='livro_form.html'):
     form = LivroForm(request.POST or None)
