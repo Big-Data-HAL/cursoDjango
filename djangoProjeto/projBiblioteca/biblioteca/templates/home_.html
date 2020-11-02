@@ -10,7 +10,8 @@ Teste HTML Básico no Django
 
 {% block content %}
 <form methods="POST">
-    <h4>Its is now: "{{vnew}}"?</h4>
+    <a href="{% url 'home' %}"
+    <h4>Its is now: "{{vnow}}"</h4>
     <br/>
 </form>
 
