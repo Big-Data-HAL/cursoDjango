@@ -9,9 +9,10 @@ import datetime
 
 def home(request, template_name='home_.html'):
     vnow = datetime.datetime.now()
+    dnow = {'vnow': vnow}
     #html = "<html><body>It is now %s.</body></html>" %now
     #return HttpResponse(html)
-    return render(request, template_name,{'vnow': vnow})
+    return render(request, template_name,dnow)
 
 class LivroForm(ModelForm):
     class Meta:
@@ -26,7 +27,7 @@ class LivroForm(ModelForm):
 def livro_list(request, template_name='livro_list.html'):
     livro = Livro.objects.all()
     livros = {'lista': livro}
-    return render(request, template_name, livro)
+    return render(request, template_name, livros)
 
 def livro_new(request, template_name='livro_form.html'):
     form = LivroForm(request.POST or None)
@@ -50,7 +51,7 @@ def livro_edit(request, pk, template_name='livro_form.html'):
 
 def livro_remove(request, pk):
     livro = Livro.objects.get(pk=pk)
-    if request.method == "DELETE":
+    if request.method == "POST":
         livro.delete()
         return redirect('livro_list')
     return render(request, 'livro_delete.html', {'livro': livro})
