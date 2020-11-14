@@ -48,11 +48,12 @@ def livro_edit(request, pk, template_name='livro_form.html'):
         form = LivroForm(instance=livro)
     return render(request, template_name, {'form': form})
 
-
 def livro_remove(request, pk):
     livro = Livro.objects.get(pk=pk)
     if request.method == "POST":
         livro.delete()
         return redirect('livro_list')
     return render(request, 'livro_delete.html', {'livro': livro})
+
+
 

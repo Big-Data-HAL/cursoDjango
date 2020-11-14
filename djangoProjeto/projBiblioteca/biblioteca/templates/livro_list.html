@@ -9,7 +9,8 @@ Listagem de Livros
 {% endblock tituloPagina %}
 
 {% block content %}
-<table class="table">
+    <h4>Pesquise um livro: </h4>
+<table class="table" xmlns="http://www.w3.org/1999/html">
     <tread>
         <tr>
           <th>Autor</th>
@@ -32,6 +33,9 @@ Listagem de Livros
                 </a>
                 <a href="{% url 'livro_remove' pk=livro.pk %}">
                     <span class="glyphicon glyphicon-trash"></span>
+                </a>
+                <a href="{% url 'livro_edit' pk=livro.pk %}">
+                    <span class="glyphicon glyphicon-search"></span>
                 </a>
             </td>
         </tr>
