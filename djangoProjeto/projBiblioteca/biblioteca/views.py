@@ -3,6 +3,7 @@ from .models import *
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 import datetime
+from .bo import calculadora
 
 
 # Create your views here.
@@ -55,5 +56,9 @@ def livro_remove(request, pk):
         return redirect('livro_list')
     return render(request, 'livro_delete.html', {'livro': livro})
 
-
+def vbo(request):
+    res = calculadora.somar(3,5)
+    #res = calculadora.grafico()
+    dnow = {'vnow': res}
+    return render(request, 'home_.html', dnow)
 
