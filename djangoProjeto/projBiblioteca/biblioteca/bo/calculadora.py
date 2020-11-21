@@ -1,4 +1,5 @@
 import plotly.graph_objects as go
+import plotly as py
 
 def somar(a, b):
     r = a + b
@@ -13,6 +14,32 @@ def grafico():
 
     figure = go.Figure(data=data, layout=layout)
 
-    f2 = go.FigureWidget(figure)
+    fig = go.FigureWidget(figure)
+
+    f2 = py.offline.plot(figure, filename='filename.html', auto_open=False)
 
     return f2
+
+def plotly():
+
+    html = """< div
+    id = "82072c0d-ba8d-4e86-b000-0892be065ca8"
+    style = "height: 100%; width: 100%;"
+
+    class ="plotly-graph-div" > < / div >
+
+    < script
+    type = "text/javascript" > window.PLOTLYENV = window.PLOTLYENV | | {};
+    window.PLOTLYENV.BASE_URL = "https://plot.ly";
+    Plotly.newPlot("82072c0d-ba8d-4e86-b000-0892be065ca8",
+                   [{"y":..bunch of data..., "x":..lots
+    of
+    data.., {"showlegend": true, "title": "the title", "xaxis": {"zeroline": true, "showline": true},
+             "yaxis": {"zeroline": true, "showline": true, "range": [0, 22.63852380952382]}}, {
+        "linkText": "Export to plot.ly", "showLink": true}) < / script >"""
+
+    return html
+
+
+
+

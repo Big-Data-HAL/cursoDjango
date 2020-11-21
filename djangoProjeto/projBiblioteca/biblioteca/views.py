@@ -57,8 +57,9 @@ def livro_remove(request, pk):
     return render(request, 'livro_delete.html', {'livro': livro})
 
 def vbo(request):
-    res = calculadora.somar(3,5)
-    #res = calculadora.grafico()
-    dnow = {'vnow': res}
+    res2 = calculadora.somar(3,5)
+    fig = calculadora.grafico()
+    #html = calculadora.plotly()
+    dnow = {'vnow': fig, 'vnow2': fig}
     return render(request, 'home_.html', dnow)
 
