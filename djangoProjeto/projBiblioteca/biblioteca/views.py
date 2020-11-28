@@ -11,24 +11,28 @@ from .bo import calculadora
 def home(request, template_name='home_.html'):
     vnow = datetime.datetime.now()
     dnow = {'vnow': vnow}
-    #html = "<html><body>It is now %s.</body></html>" %now
-    #return HttpResponse(html)
-    return render(request, template_name,dnow)
+    # html = "<html><body>It is now %s.</body></html>" %now
+    # return HttpResponse(html)
+    return render(request, template_name, dnow)
+
 
 class LivroForm(ModelForm):
     class Meta:
         model = Livro
-        fields = ['autor', 'editora', 'isbn', 'numeroPaginas', 'titulo', 'anoPublicacao','emailEditora']
+        fields = ['autor', 'editora', 'isbn', 'numeroPaginas', 'titulo', 'anoPublicacao', 'emailEditora']
 
-# def livro_list(request, template_name= 'livro_list.html'):
-    # livro = Livro.objects.all
-    # livros = {'lista:', livro}
-    #return render(request, template_name, livros)
 
 def livro_list(request, template_name='livro_list.html'):
     livro = Livro.objects.all()
     livros = {'lista': livro}
     return render(request, template_name, livros)
+
+
+# def livro_busca(request, template_name='livro_busca.html'):
+    # livro = Livro.objects.filter()
+    # vbusca = {'lista': livro}
+    # return render(request, template_name, vbusca)
+
 
 def livro_new(request, template_name='livro_form.html'):
     form = LivroForm(request.POST or None)
@@ -49,6 +53,7 @@ def livro_edit(request, pk, template_name='livro_form.html'):
         form = LivroForm(instance=livro)
     return render(request, template_name, {'form': form})
 
+
 def livro_remove(request, pk):
     livro = Livro.objects.get(pk=pk)
     if request.method == "POST":
@@ -56,10 +61,10 @@ def livro_remove(request, pk):
         return redirect('livro_list')
     return render(request, 'livro_delete.html', {'livro': livro})
 
+
 def vbo(request):
-    res2 = calculadora.somar(3,5)
+    res2 = calculadora.somar(3, 5)
     fig = calculadora.grafico()
-    #html = calculadora.plotly()
+    # html = calculadora.plotly()
     dnow = {'vnow': fig, 'vnow2': fig}
     return render(request, 'home_.html', dnow)
-

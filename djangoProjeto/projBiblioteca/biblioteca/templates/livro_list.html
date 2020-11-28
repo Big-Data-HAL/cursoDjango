@@ -9,43 +9,50 @@ Listagem de Livros
 {% endblock tituloPagina %}
 
 {% block content %}
-    <h4>Pesquise um livro: </h4>
-<table class="table" xmlns="http://www.w3.org/1999/html">
-    <tread>
-        <tr>
-          <th>Autor</th>
-          <th>Titulo</th>
-          <th>Ano</th>
-            <th>ISBN</th>
-          <th>Ação</th>
-        </tr>
-    </tread>
-    <tbody>
-        {% for livro in lista %}
-        <tr>
-            <td>{{livro.autor}}</td>
-            <td>{{livro.titulo}}</td>
-            <td>{{livro.anoPublicacao}}</td>
-            <td>{{livro.isbn}}</td>
-            <td>
-                <a href="{% url 'livro_edit' pk=livro.pk %}">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                </a>
-                <a href="{% url 'livro_remove' pk=livro.pk %}">
-                    <span class="glyphicon glyphicon-trash"></span>
-                </a>
-                <a href="{% url 'livro_edit' pk=livro.pk %}">
-                    <span class="glyphicon glyphicon-search"></span>
-                </a>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Autor</th>
+      <th>Titulo</th>
+      <th>Ano</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for livro in lista %}
+    <tr>
+      <td>{{ livro.autor }}</td>
+      <td>{{ livro.titulo }}</td>
+      <td>{{ livro.anoPublicacao }}</td>
+      <td>
+        <a href="{% url 'livro_edit' pk=livro.pk %}">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+        <a href="{% url 'livro_remove' pk=livro.pk %}">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
 </table>
 <a href="{% url 'livro_new' %}">
 <button type="submit" class="btn btn-primary">
     Cadastrar
 </button>
 </a>
+
+<section id="livro.titulo">
+    <!--<form action="/livro_list/" method="post"> -->
+        <label for="nome">Busca</label>
+        <input type="text" name="nome" id="nome" placeholder="Digite título do livro aqui">
+
+         <button type="submit">
+             <span class="glyphicon glyphicon-search"></span>
+         </button>
+    <!--</form> -->
+
+</section>
 
 {% endblock content %}

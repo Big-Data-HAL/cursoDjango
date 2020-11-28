@@ -9,3 +9,11 @@ class Livro(models.Model):
     titulo = models.CharField(max_length=50)
     anoPublicacao = models.IntegerField(default=0)
     emailEditora = models.EmailField(max_length=50)
+
+    # class Meta:
+        # db_table = 'Livro'
+
+    #
+    # def __str__(self):
+        # return  self.titulo
+
