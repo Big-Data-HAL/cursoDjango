@@ -10,6 +10,12 @@ class Livro(models.Model):
     anoPublicacao = models.IntegerField(default=0)
     emailEditora = models.EmailField(max_length=50)
 
+class MlTeca(models.Model):
+    paginas = models.IntegerField(default=0)
+    publicacao = models.IntegerField(default=0)
+    assunto = models.IntegerField(default=0)
+    avaliacao = models.IntegerField(default=0)
+
     # class Meta:
         # db_table = 'Livro'
 

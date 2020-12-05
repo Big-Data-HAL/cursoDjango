@@ -9,10 +9,13 @@ Teste HTML Básico no Django
 {% endblock tituloPagina %}
 
 {% block content %}
+<p>
+{{html}}
+</p>
+
 <form method="POST">
     <a href="{% url 'home' %}"
     <h4>Its is now: "{{vnow}}" e {{vnow2}}</h4>
-
     <br/>
 </form>
 
