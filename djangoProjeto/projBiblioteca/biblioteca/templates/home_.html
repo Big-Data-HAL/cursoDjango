@@ -14,9 +14,14 @@ Teste HTML Básico no Django
 </p>
 
 <form method="POST">
-    <a href="{% url 'home' %}"
+    <a href="{% url 'home' %}"></a>
     <h4>Its is now: "{{vnow}}" e {{vnow2}}</h4>
     <br/>
+    <nav class="navbar">
+        <a href="/livro_list">Lista de Livros</a> |
+        <a href="/livro_new">Novo Livro</a>
+    </nav>
+
 </form>
 
 {% endblock content %}
