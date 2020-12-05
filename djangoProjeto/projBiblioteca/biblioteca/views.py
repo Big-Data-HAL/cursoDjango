@@ -24,13 +24,17 @@ class LivroForm(ModelForm):
 
 def livro_list(request, template_name='livro_list.html'):
     livro = Livro.objects.all()
+    search = request.GET.get('search')
+    if search:
+        livro = livro.filter(titulo__icontains=search)
     livros = {'lista': livro}
     return render(request, template_name, livros)
 
-
-# def livro_busca(request, template_name='livro_busca.html'):
-    # livro = Livro.objects.filter()
-    # vbusca = {'lista': livro}
+# def livro_busca(request, template_name='livro_list.html'):
+    # livro = Livro.objects.filter(pk=1)
+    # if request.method == "POST":
+        # form
+    #  vbusca = {'lista': livro}
     # return render(request, template_name, vbusca)
 
 

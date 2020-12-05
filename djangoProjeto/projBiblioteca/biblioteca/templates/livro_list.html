@@ -10,6 +10,15 @@ Listagem de Livros
 
 {% block content %}
 
+<div class="row">
+    <div class="col-sm-6">
+        <form action="." method="get" class="form-inline">
+            <input type="text" id="search" name="search" class="form-control" placeholder="Digite título do livro aqui">
+            <input type="submit" class="btn btn-primary" style="padding-left: 10px" value="OK">
+        </form>
+    </div>
+</div>
+
 <table class="table">
   <thead>
     <tr>
@@ -42,17 +51,5 @@ Listagem de Livros
     Cadastrar
 </button>
 </a>
-
-<section id="livro.titulo">
-    <!--<form action="/livro_list/" method="post"> -->
-        <label for="nome">Busca</label>
-        <input type="text" name="nome" id="nome" placeholder="Digite título do livro aqui">
-
-         <button type="submit">
-             <span class="glyphicon glyphicon-search"></span>
-         </button>
-    <!--</form> -->
-
-</section>
 
 {% endblock content %}
