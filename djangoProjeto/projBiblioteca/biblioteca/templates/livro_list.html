@@ -29,6 +29,7 @@ Listagem de Livros
       <th>Autor</th>
       <th>Titulo</th>
       <th>Ano</th>
+        <th>Data </th>
       <th>Ação</th>
     </tr>
   </thead>
@@ -38,6 +39,7 @@ Listagem de Livros
       <td>{{ livro.autor }}</td>
       <td>{{ livro.titulo }}</td>
       <td>{{ livro.anoPublicacao }}</td>
+        <td>{{livro.dataCadastro}}</td>
       <td>
         <a href="{% url 'livro_edit' pk=livro.pk %}">
           <span class="glyphicon glyphicon-pencil"></span>

@@ -19,7 +19,7 @@ def home(request, template_name='home_.html'):
 class LivroForm(ModelForm):
     class Meta:
         model = Livro
-        fields = ['autor', 'editora', 'isbn', 'numeroPaginas', 'titulo', 'anoPublicacao', 'emailEditora']
+        fields = ['autor', 'editora', 'isbn', 'numeroPaginas', 'titulo', 'anoPublicacao', 'emailEditora', 'dataCadastro']
 
 
 def livro_list(request, template_name='livro_list.html'):
