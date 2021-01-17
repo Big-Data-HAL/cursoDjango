@@ -1,5 +1,5 @@
 """
-ASGI config for projBiblioteca project.
+ASGI config for  projBiblioteca project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
